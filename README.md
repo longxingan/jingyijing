@@ -42,7 +42,7 @@
 
 ```bash
 # 克隆仓库
-git clone https://github.com/yourusername/jingyijing.git
+git clone https://github.com/longxingan/jingyijing.git
 cd jingyijing
 
 # 安装依赖
