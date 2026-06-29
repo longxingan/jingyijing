@@ -211,7 +211,7 @@ try:
 except ImportError:
     PYSTRAY_AVAILABLE = False
 
-VERSION = "v9.0.9"
+VERSION = "v9.0.10"
 
 # ==================== Windows 原生热键 ====================
 class WindowsHotkey:
@@ -1060,6 +1060,9 @@ class App:
 
         self._build_layout()
         self._start_hotkey()
+        # 如果开启了开机自启，自动修复注册表路径（支持 exe 升级或移动位置后自动更新）
+        if self.cfg.get("auto_start", False):
+            AutoStartManager.enable()
         self.root.after(500, self._auto_start_timers)
         self.root.protocol("WM_DELETE_WINDOW", self._on_close)
         self.root.mainloop()
